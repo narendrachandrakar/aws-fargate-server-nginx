@@ -1,0 +1,10 @@
+version: '2'
+services:
+  web:
+    build: docker/nginx
+    ports:
+      - "8090:80"
+  php:
+    build: .
+    volumes:
+      - .:/var/www/html
