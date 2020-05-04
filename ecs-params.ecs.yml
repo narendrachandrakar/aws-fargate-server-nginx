@@ -3,10 +3,10 @@ run_params:
     awsvpc_configuration:
       assign_public_ip: ENABLED
       security_groups:
-      - sg-0650e098221dc15e5
+      - sg-06510101221dc15e5
       subnets:
-      - subnet-813dd3dc
-      - subnet-6e6a7517
+      - subnet-813ff3dc
+      - subnet-6e8q7517
 task_definition:
   ecs_network_mode: awsvpc
   services:
