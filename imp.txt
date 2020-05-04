@@ -38,7 +38,7 @@ ecs-cli configure --cluster rainbowtext --region us-west-2 --default-launch-type
 
 # create ecs profile
 echo "create ecs profile"
-ecs-cli configure profile --access-key "AKIA5JFQYEKR6TQ6NL6A" --secret-key "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" --profile-name rainbowtext 
+ecs-cli configure profile --access-key "xxxxxxx" --secret-key "yyyyyyy" --profile-name rainbowtext 
 
 # ecs-cli up
 echo "ecs-cli up running"
