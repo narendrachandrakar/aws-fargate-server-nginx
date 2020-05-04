@@ -55,3 +55,13 @@ ecs-cli compose --project-name rainbowtext  service ps --cluster-config rainbowt
 ecs-cli logs --task-id 76cf7edc-6aa7-419c-979b-59836d2c63ef/nginx --follow --cluster-config rainbowtext  --ecs-profile rainbowtext  
 
 
+++++++++++++++++++
+
+Cleanup 
+
+ecs-cli compose --file docker-compose.ecs.yml --ecs-params ecs-params.ecs.yml   --project-name rainbowtext   service down --cluster-config rainbowtext  --ecs-profile rainbowtext  
+
+logs:
+ecs-cli compose --project-name rainbowtext  service ps --cluster-config rainbowtext  --ecs-profile rainbowtext 
+
+
