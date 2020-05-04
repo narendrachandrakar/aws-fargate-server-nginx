@@ -3,7 +3,7 @@ services:
     container_name: rainbowtext_proxy
     depends_on:
       - server
-    image: 913051230883.dkr.ecr.us-west-2.amazonaws.com/rainbowtext_nginx
+    image: ****-2.amazonaws.com/rainbowtext_nginx
     logging:
       driver: awslogs
       options:
@@ -14,7 +14,7 @@ services:
       - 80:80
   server:
     container_name: rainbowtext_server
-    image: 913051230883.dkr.ecr.us-west-2.amazonaws.com/rainbowtext_server
+    image: ******.amazonaws.com/rainbowtext_server
     logging:
       driver: awslogs
       options:
