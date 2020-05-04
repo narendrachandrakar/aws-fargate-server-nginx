@@ -6,6 +6,14 @@ https://hub.docker.com/repository/docker/narendrachandrakar/server
 Nginx:
 https://hub.docker.com/repository/docker/narendrachandrakar/nginx
 
+Sample:
+
+sample-docker-compose.ecs.yml
+https://gist.githubusercontent.com/andela-sjames/b4c09d91c4663343a284b0b15ac85771/raw/2a7b9e661e8734676669c6de7d69f93679b0d7d2/sample-docker-compose.ecs.yml
+
+sample-ecs-params.ecs.yml
+https://gist.githubusercontent.com/andela-sjames/78e0b3c46e0789db0ad3b1e222a91ebe/raw/53755409eff9d2402ff48db84a096ccb72450199/sample-ecs-params.ecs.yml
+
 +++++++++++++++
 go to this file scripts/config_ecr.py, add the following details:
 
