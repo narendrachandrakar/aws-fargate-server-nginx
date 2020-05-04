@@ -1,0 +1,57 @@
+https://medium.com/@jamesvaresamuel/auto-deploy-to-aws-fargate-with-docker-compose-and-ecs-params-47b14f571a29 
+https://github.com/andela-sjames/rainbowtext/blob/master/docker-compose.yml 
+https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-cli-tutorial-fargate.html 
+
+
++++++++++++++++
+go to this file scripts/config_ecr.py, add the following details:
+
+ID = os.getenv('AWS_ACCOUNT_ID', '913')
+REGION = os.getenv('AWS_REGION', 'us-west-2')
+PROJECT = os.getenv('AWS_PROJECT', 'rainbowtext')
+
+
+
+us-west-2
+AmazonECSTaskExecutionRolePolicy 
+
+
+ecsTaskExecutionRole
+
+role_name=ecsTaskExecutionRole
+
+# ECS CLI configuration
+# create ecs cluster config
+echo "create ecs cluster config"
+ecs-cli configure --cluster rainbowtext --region us-west-2 --default-launch-type FARGATE --config-name us-west-2
+
+# create ecs profile
+echo "create ecs profile"
+ecs-cli configure profile --access-key "AKIA5JFQYEKR6TQ6NL6A" --secret-key "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" --profile-name rainbowtext 
+
+# ecs-cli up
+echo "ecs-cli up running"
+result=$(ecs-cli up --azs ${AWS_REGION}a,${AWS_REGION}b --force --instance-role ${role_name} --cluster ${project_name})
+echo "ecs-cli up done"
+
+ecs-cli compose --file docker-compose.ecs.yml --ecs-params ecs-params.ecs.yml --project-name rainbowtext service up --create-log-groups --cluster-config rainbowtext 
+
+++++++++++++++ Start from here +++++++++++++
+
+
+
+ecs-cli configure --cluster rainbowtext --default-launch-type FARGATE --config-name rainbowtext --region us-west-2
+
+ecs-cli configure profile --access-key "$AWS_ACCESS_KEY_ID" --secret-key "$AWS_SECRET_ACCESS_KEY" --profile-name rainbowtext 
+
+ecs-cli up --cluster-config rainbowtext  --ecs-profile rainbowtext 
+
+ecs-cli compose --file docker-compose.ecs.yml --ecs-params ecs-params.ecs.yml  --project-name rainbowtext  service up --create-log-groups --cluster-config rainbowtext  --ecs-profile rainbowtext  
+
+Logs:
+ecs-cli compose --project-name rainbowtext  service ps --cluster-config rainbowtext  --ecs-profile rainbowtext 
+
+
+ecs-cli logs --task-id 76cf7edc-6aa7-419c-979b-59836d2c63ef/nginx --follow --cluster-config rainbowtext  --ecs-profile rainbowtext  
+
+

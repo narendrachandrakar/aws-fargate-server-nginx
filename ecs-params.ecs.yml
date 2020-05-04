@@ -1,0 +1,21 @@
+run_params:
+  network_configuration:
+    awsvpc_configuration:
+      assign_public_ip: ENABLED
+      security_groups:
+      - sg-0650e098221dc15e5
+      subnets:
+      - subnet-813dd3dc
+      - subnet-6e6a7517
+task_definition:
+  ecs_network_mode: awsvpc
+  services:
+    nginx:
+      essential: false
+    server:
+      essential: true
+  task_execution_role: ecsTaskExecutionRole
+  task_size:
+    cpu_limit: 256
+    mem_limit: 0.5GB
+version: 1

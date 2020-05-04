@@ -1,0 +1,25 @@
+services:
+  nginx:
+    container_name: rainbowtext_proxy
+    depends_on:
+      - server
+    image: 913051230883.dkr.ecr.us-west-2.amazonaws.com/rainbowtext_nginx
+    logging:
+      driver: awslogs
+      options:
+        awslogs-group: rainbowtext
+        awslogs-region: us-west-2
+        awslogs-stream-prefix: rainbowtext-nginx
+    ports:
+      - 80:80
+  server:
+    container_name: rainbowtext_server
+    image: 913051230883.dkr.ecr.us-west-2.amazonaws.com/rainbowtext_server
+    logging:
+      driver: awslogs
+      options:
+        awslogs-group: rainbowtext
+        awslogs-region: us-west-2
+        awslogs-stream-prefix: rainbowtext-server
+    restart: always
+version: '3'
