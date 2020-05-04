@@ -1,7 +1,10 @@
 https://medium.com/@jamesvaresamuel/auto-deploy-to-aws-fargate-with-docker-compose-and-ecs-params-47b14f571a29 
 https://github.com/andela-sjames/rainbowtext/blob/master/docker-compose.yml 
 https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-cli-tutorial-fargate.html 
-
+Server image:
+https://hub.docker.com/repository/docker/narendrachandrakar/server
+Nginx:
+https://hub.docker.com/repository/docker/narendrachandrakar/nginx
 
 +++++++++++++++
 go to this file scripts/config_ecr.py, add the following details:
