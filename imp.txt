@@ -47,16 +47,23 @@ echo "ecs-cli up done"
 
 ecs-cli compose --file docker-compose.ecs.yml --ecs-params ecs-params.ecs.yml --project-name rainbowtext service up --create-log-groups --cluster-config rainbowtext 
 
-++++++++++++++ Start from here +++++++++++++
+++++++++++++++ Tested Command +++++++++++++
 
 
 
+1.
 ecs-cli configure --cluster rainbowtext --default-launch-type FARGATE --config-name rainbowtext --region us-west-2
-
+2.
 ecs-cli configure profile --access-key "$AWS_ACCESS_KEY_ID" --secret-key "$AWS_SECRET_ACCESS_KEY" --profile-name rainbowtext 
-
+3.
 ecs-cli up --cluster-config rainbowtext  --ecs-profile rainbowtext 
 
+**Note: once you ran ecs-cli  up command, you will get VPC, subnet ...you can add both subnet and find security_groups in ecs-parmas.ecs.yml file
+VPC created: vpc-******
+Subnet created: subnet-****
+Subnet created: subnet-***
+
+4.
 ecs-cli compose --file docker-compose.ecs.yml --ecs-params ecs-params.ecs.yml  --project-name rainbowtext  service up --create-log-groups --cluster-config rainbowtext  --ecs-profile rainbowtext  
 
 Logs:
